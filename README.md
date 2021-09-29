@@ -18,7 +18,7 @@ The project end-result is a presentation of four slides. Each slide:
 
 ## Software requirements
 
-* SQL
+* Postgres SQL
 * Excel
 * PowerPoint
 
