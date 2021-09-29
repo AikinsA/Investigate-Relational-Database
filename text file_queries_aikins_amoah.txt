@@ -1,0 +1,40 @@
+/*Query 1 - query used for the first insight*/
+SELECT first_name AS customer_name, to_char(SUM (amount), '99999999999999999D99') AS total_paid
+FROM Payment
+JOIN customer ON customer.customer_id = payment.customer_id
+GROUP BY customer.customer_id
+ORDER BY total_paid DESC
+LIMIT 15;
+
+/*Query 2 - query used for the second question insight*/
+
+SELECT COUNT (length) AS COUNT_length, length AS film_length
+FROM film
+JOIN inventory ON inventory.inventory_id = inventory_id
+WHERE length < 60 
+GROUP BY film_length
+ORDER BY film_length
+
+
+
+/*Query 3 - query used for the 3rd question insight*/
+
+SELECT title,rental_rate, name
+FROM film
+JOIN film_category on film.film_id = film_category.film_id
+JOIN category ON film_category.category_id = category.category_id
+WHERE rental_rate > (SELECT AVG(rental_rate) FROM film) AND name = 'Horror'
+LIMIT 20;
+
+/*Query 4 - query used for the fourth question insight*/
+
+SELECT DISTINCT name AS film_category, AVG(rental_rate) OVER (Partition by name) AS film_AVG_rental
+FROM film
+ JOIN film_category ON film.film_id = film_category.film_id
+ JOIN category ON film_category.category_id = category.category_id
+WHERE name IN (SELECT name FROM category where name != 'cincinatti')
+
+
+
+
+
