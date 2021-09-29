@@ -3,7 +3,7 @@
 Project created on 30/09/2021.
 
 ## Investigate a Relational Database
-I used SQL to explore a database related to movie rentals. I wrote SQL code to run SQL queries and answer questions about the database.
+I used  Postgres SQL to explore a database related to movie rentals. I wrote SQL code to run SQL queries and answer questions about the database.
 
 The project end-result is a presentation of four slides. Each slide:
 
